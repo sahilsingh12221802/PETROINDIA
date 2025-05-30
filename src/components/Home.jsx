@@ -29,9 +29,9 @@ const Home = () => {
   ];
 
   return (
-    <section id="home" className="relative">
-      {/* Carousel Section */}
-      <div className="relative h-screen">
+    <section id="home" className="relative overflow-x-hidden">
+      {/* Carousel Section - Modified for mobile */}
+      <div className="relative h-[70vh] md:h-screen"> {/* Reduced height on mobile */}
         <Carousel
           showArrows={true}
           showStatus={false}
@@ -46,26 +46,27 @@ const Home = () => {
           className="h-full"
         >
           {carouselImages.map((image) => (
-            <div key={image.id} className="h-screen relative">
+            <div key={image.id} className="h-[70vh] md:h-screen relative"> {/* Match parent height */}
               <img 
                 src={image.src} 
                 alt={image.alt} 
                 className="w-full h-full object-cover"
+                style={{ objectPosition: 'center center' }} // Ensures consistent image focus
               />
-              <div className="absolute inset-0  bg-opacity-50 flex items-end pb-16 pl-8 md:pl-16">
+              <div className="absolute inset-0  bg-opacity-40 flex items-end pb-8 md:pb-16 px-4 md:pl-16">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-left"
+                  className="text-left max-w-md md:max-w-2xl"
                 >
-                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-3">
+                  <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-3">
                     {image.title}
                   </h2>
-                  <p className="text-lg md:text-xl text-orange-300 mb-6">
+                  <p className="text-base md:text-lg text-orange-300 mb-4 md:mb-6">
                     {image.description}
                   </p>
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium md:font-bold py-2 px-4 md:py-2 md:px-6 rounded-full transition duration-300 transform hover:scale-105 text-sm md:text-base">
                     View Our Work
                   </button>
                 </motion.div>
@@ -75,36 +76,36 @@ const Home = () => {
         </Carousel>
       </div>
 
-      {/* Stats Section */}
-      <div className=" py-12">
+      {/* Stats Section - Adjusted for mobile */}
+      <div className="bg-white py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-white"
+              className="bg-gray-50 p-4 rounded-lg shadow-sm"
             >
-              <h3 className="text-4xl font-bold text-orange-400 mb-2">25+</h3>
-              <p className="text-lg text-black">Years Experience</p>
+              <h3 className="text-3xl md:text-4xl font-bold text-orange-400 mb-2">25+</h3>
+              <p className="text-base md:text-lg text-gray-700">Years Experience</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-white"
+              className="bg-gray-50 p-4 rounded-lg shadow-sm"
             >
-              <h3 className="text-4xl font-bold text-orange-400 mb-2">150+</h3>
-              <p className="text-lg text-black">Projects Completed</p>
+              <h3 className="text-3xl md:text-4xl font-bold text-orange-400 mb-2">150+</h3>
+              <p className="text-base md:text-lg text-gray-700">Projects Completed</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-white"
+              className="bg-gray-50 p-4 rounded-lg shadow-sm"
             >
-              <h3 className="text-4xl font-bold text-orange-400 mb-2">50+</h3>
-              <p className="text-lg text-black">Satisfied Clients</p>
+              <h3 className="text-3xl md:text-4xl font-bold text-orange-400 mb-2">100%</h3>
+              <p className="text-base md:text-lg text-gray-700">Completion Rate</p>
             </motion.div>
           </div>
         </div>

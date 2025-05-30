@@ -76,7 +76,7 @@ const About = () => {
           {[
             { value: '25+', label: 'Years Experience' },
             { value: '150+', label: 'Projects Completed' },
-            { value: '50+', label: 'Satisfied Clients' },
+            { value: '100%', label: 'Completion Rate' },
             { value: '9', label: 'Service Categories' },
           ].map((item, index) => (
             <motion.div
